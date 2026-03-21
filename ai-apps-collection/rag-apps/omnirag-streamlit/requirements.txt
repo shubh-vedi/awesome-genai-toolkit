@@ -1,0 +1,11 @@
+streamlit
+google-genai
+chromadb
+pypdf
+Pillow
+rank_bm25
+langchain-core
+langchain-google-genai
+langgraph
+python-dotenv
+numpy
