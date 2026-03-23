@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="./assets/banner.png" alt="Awesome GenAI Toolkit - 1000+ Curated Generative AI Resources, Tools, Frameworks and Apps for Developers" width="100%" />
+<img src="./assets/banner.png" alt="Awesome GenAI Toolkit - 1000+ Curated Generative AI Resources, Tools, Frameworks and Apps for Developers" width="900px" />
 
 # 🚀 Awesome GenAI Toolkit
 ### The Most Comprehensive Open-Source Collection of Generative AI Resources
