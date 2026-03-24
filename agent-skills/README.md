@@ -27,7 +27,7 @@ python main.py
 
 | Project | Description | Difficulty |
 |---------|-------------|------------|
-| *Coming soon* | Contribute the first project! | — |
+| [Trending Meme Creator](trending-meme-creator/) | Generate viral "Baccha hai tu mera" / Jameel Mamu-style branded meme creatives with AI image prompts, text overlays & Instagram captions | ⭐ Easy |
 
 ## 🤝 Contributing
 
