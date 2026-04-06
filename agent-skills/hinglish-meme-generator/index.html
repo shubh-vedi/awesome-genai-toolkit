@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: radial-gradient(circle at top left, #1a1a2e, #16213e, #0f3460, #0a0a0a);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    padding: 16px;
+    overflow: hidden;
+  }
+
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .meme-card {
+    width: 380px;
+    min-height: 420px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 32px 28px;
+    text-align: center;
+  }
+
+  /* === CLASSIC STYLE === */
+  .style-classic {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+  }
+  .style-classic .meme-hinglish {
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.35;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+  }
+  .style-classic .meme-original {
+    font-size: 13px;
+    opacity: 0.75;
+    margin-top: 20px;
+    font-style: italic;
+    line-height: 1.4;
+  }
+  .style-classic .meme-watermark {
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* === DESI QUOTE STYLE === */
+  .style-desi-quote {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    color: #2d1810;
+    border: 4px solid #e8a87c;
+  }
+  .style-desi-quote::before {
+    content: '❝';
+    position: absolute;
+    top: 12px;
+    left: 20px;
+    font-size: 60px;
+    opacity: 0.15;
+    color: #2d1810;
+  }
+  .style-desi-quote .meme-hinglish {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.4;
+    font-style: italic;
+  }
+  .style-desi-quote .meme-original {
+    font-size: 12px;
+    opacity: 0.6;
+    margin-top: 20px;
+    line-height: 1.4;
+  }
+  .style-desi-quote .divider {
+    width: 60px;
+    height: 3px;
+    background: #e8a87c;
+    margin: 16px auto;
+    border-radius: 2px;
+  }
+  .style-desi-quote .meme-watermark {
+    color: rgba(45,24,16,0.3);
+  }
+
+  /* === ROAST STYLE === */
+  .style-roast {
+    background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    color: #ff6b6b;
+  }
+  .style-roast::before {
+    content: '🔥';
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 36px;
+  }
+  .style-roast::after {
+    content: '🔥';
+    position: absolute;
+    bottom: 50px;
+    left: 20px;
+    font-size: 28px;
+  }
+  .style-roast .meme-hinglish {
+    font-size: 25px;
+    font-weight: 900;
+    line-height: 1.35;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 20px rgba(255,107,107,0.3);
+  }
+  .style-roast .meme-original {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 20px;
+    line-height: 1.4;
+  }
+  .style-roast .meme-watermark {
+    color: rgba(255,107,107,0.25);
+  }
+
+  /* === TECH BRO STYLE === */
+  .style-tech-bro {
+    background: #1a1b26;
+    color: #7aa2f7;
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    border: 1px solid #2a2b36;
+    align-items: flex-start;
+    text-align: left;
+  }
+  .style-tech-bro .terminal-bar {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  .style-tech-bro .terminal-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+  .style-tech-bro .dot-red { background: #ff5f57; }
+  .style-tech-bro .dot-yellow { background: #febc2e; }
+  .style-tech-bro .dot-green { background: #28c840; }
+  .style-tech-bro .meme-hinglish {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #9ece6a;
+  }
+  .style-tech-bro .meme-hinglish::before {
+    content: '> ';
+    color: #565f89;
+  }
+  .style-tech-bro .meme-original {
+    font-size: 11px;
+    color: #565f89;
+    margin-top: 20px;
+    line-height: 1.4;
+  }
+  .style-tech-bro .meme-original::before {
+    content: '// ';
+  }
+  .style-tech-bro .meme-watermark {
+    color: rgba(122,162,247,0.2);
+  }
+
+  /* === WHOLESOME STYLE === */
+  .style-wholesome {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    color: #2d3436;
+  }
+  .style-wholesome::before {
+    content: '🫶';
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 32px;
+  }
+  .style-wholesome .meme-hinglish {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-top: 16px;
+  }
+  .style-wholesome .meme-original {
+    font-size: 12px;
+    opacity: 0.5;
+    margin-top: 20px;
+    line-height: 1.4;
+  }
+  .style-wholesome .meme-watermark {
+    color: rgba(45,52,54,0.2);
+  }
+
+  /* === SHARED ELEMENTS === */
+  .meme-watermark {
+    position: absolute;
+    bottom: 20px;
+    right: 24px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+  }
+
+  .meme-card:hover .meme-watermark {
+    opacity: 0.9;
+  }
+
+  .meme-card {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    cursor: default;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+
+  .meme-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  }
+
+  .meme-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .style-classic .meme-badge { background: rgba(255,255,255,0.15); color: #fff; }
+  .style-desi-quote .meme-badge { background: rgba(45,24,16,0.1); color: #2d1810; }
+  .style-roast .meme-badge { background: rgba(255,107,107,0.15); color: #ff6b6b; }
+  .style-tech-bro .meme-badge { background: rgba(122,162,247,0.1); color: #7aa2f7; }
+  .style-wholesome .meme-badge { background: rgba(45,52,54,0.08); color: #2d3436; }
+</style>
+</head>
+<body>
+
+<div id="meme-container"></div>
+
+<script>
+window.ai_edge_gallery_get_result = async function(data) {
+  try {
+    const params = JSON.parse(data);
+    const original = params.original || '';
+    const hinglish = params.hinglish || '';
+    const style = params.style || 'classic';
+
+    const validStyles = ['classic', 'desi-quote', 'roast', 'tech-bro', 'wholesome'];
+    const selectedStyle = validStyles.includes(style) ? style : 'classic';
+
+    const styleLabels = {
+      'classic': 'HINGLISH VIBES',
+      'desi-quote': 'DESI WISDOM',
+      'roast': 'ROAST MODE',
+      'tech-bro': 'TECH BHAI',
+      'wholesome': 'DIL SE'
+    };
+
+    const container = document.getElementById('meme-container');
+
+    let extraHTML = '';
+
+    if (selectedStyle === 'tech-bro') {
+      extraHTML = `
+        <div class="terminal-bar">
+          <div class="terminal-dot dot-red"></div>
+          <div class="terminal-dot dot-yellow"></div>
+          <div class="terminal-dot dot-green"></div>
+        </div>
+      `;
+    }
+
+    if (selectedStyle === 'desi-quote') {
+      extraHTML = '';
+    }
+
+    const divider = selectedStyle === 'desi-quote' ? '<div class="divider"></div>' : '';
+
+    container.innerHTML = `
+      <div class="meme-card style-${selectedStyle}">
+        ${extraHTML}
+        <div class="meme-badge">${styleLabels[selectedStyle]}</div>
+        <div class="meme-hinglish">${escapeHtml(hinglish)}</div>
+        ${divider}
+        <div class="meme-original">${escapeHtml(original)}</div>
+        <div class="meme-watermark">shubham vedi</div>
+      </div>
+    `;
+
+    return JSON.stringify({
+      result: `Meme card generated successfully with style "${selectedStyle}". The Hinglish translation "${hinglish}" has been rendered as a shareable visual card.`
+    });
+
+  } catch (e) {
+    return JSON.stringify({
+      error: 'Failed to generate meme card: ' + e.message
+    });
+  }
+};
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+</script>
+
+</body>
+</html>
