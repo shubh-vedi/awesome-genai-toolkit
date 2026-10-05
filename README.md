@@ -200,6 +200,7 @@ Includes training recipes, hyperparameter configs, and cost estimates.
 | **STT / TTS** | Whisper, ElevenLabs, Deepgram | Transcription and voice synthesis |
 | **Voice Pipelines** | Vapi, Retell, Livekit | Low-latency conversational AI |
 | **Local / Edge Voice** | Piper, Sherpa-ONNX | On-device voice processing |
+| - | [AI Group Call](https://aigroupcall.app) | An AI council you can talk to: a group voice call where agents riff with each other, answer when named, and yield when you speak. |
 
 Includes integration guides, latency benchmarks, and sample voice agent implementations.
 
